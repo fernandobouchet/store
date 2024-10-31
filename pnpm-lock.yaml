@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@vercel/examples-ui':
         specifier: ^1.0.5
-        version: 1.0.5(next@13.2.5-canary.30)(react-dom@18.2.0)(react@18.2.0)
+        version: 1.0.5(next@13.2.5-canary.30(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next:
         specifier: canary
-        version: 13.2.5-canary.30(react-dom@18.2.0)(react@18.2.0)
+        version: 13.2.5-canary.30(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: latest
         version: 18.2.0
@@ -342,8 +342,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  caniuse-lite@1.0.30001466:
-    resolution: {integrity: sha512-ewtFBSfWjEmxUgNBSZItFSmVtvk9zkwkl1OfRZlKA8slltRN+/C/tuGVrF9styXkN36Yu3+SeJ1qkXxDEyNZ5w==}
+  caniuse-lite@1.0.30001676:
+    resolution: {integrity: sha512-Qz6zwGCiPghQXGJvgQAem79esjitvJ+CxSbSQkW9H/UX5hg8XM88d4lp2W+MEQ81j+Hip58Il+jGVdazk1z9cw==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1518,6 +1518,7 @@ snapshots:
       '@typescript-eslint/typescript-estree': 5.55.0(typescript@4.7.2)
       debug: 4.3.4
       eslint: 8.36.0
+    optionalDependencies:
       typescript: 4.7.2
     transitivePeerDependencies:
       - supports-color
@@ -1538,6 +1539,7 @@ snapshots:
       is-glob: 4.0.3
       semver: 7.3.8
       tsutils: 3.21.0(typescript@4.7.2)
+    optionalDependencies:
       typescript: 4.7.2
     transitivePeerDependencies:
       - supports-color
@@ -1547,11 +1549,11 @@ snapshots:
       '@typescript-eslint/types': 5.55.0
       eslint-visitor-keys: 3.3.0
 
-  '@vercel/examples-ui@1.0.5(next@13.2.5-canary.30)(react-dom@18.2.0)(react@18.2.0)':
+  '@vercel/examples-ui@1.0.5(next@13.2.5-canary.30(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@swc/helpers': 0.4.14
       clsx: 1.2.1
-      next: 13.2.5-canary.30(react-dom@18.2.0)(react@18.2.0)
+      next: 13.2.5-canary.30(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       sugar-high: 0.4.6
@@ -1640,7 +1642,7 @@ snapshots:
   autoprefixer@10.4.14(postcss@8.4.21):
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001466
+      caniuse-lite: 1.0.30001676
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1670,7 +1672,7 @@ snapshots:
 
   browserslist@4.21.5:
     dependencies:
-      caniuse-lite: 1.0.30001466
+      caniuse-lite: 1.0.30001676
       electron-to-chromium: 1.4.330
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
@@ -1688,7 +1690,7 @@ snapshots:
 
   camelcase-css@2.0.1: {}
 
-  caniuse-lite@1.0.30001466: {}
+  caniuse-lite@1.0.30001676: {}
 
   chalk@4.1.2:
     dependencies:
@@ -1877,11 +1879,12 @@ snapshots:
       '@typescript-eslint/parser': 5.55.0(eslint@8.36.0)(typescript@4.7.2)
       eslint: 8.36.0
       eslint-import-resolver-node: 0.3.7
-      eslint-import-resolver-typescript: 3.5.3(eslint-plugin-import@2.27.5)(eslint@8.36.0)
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
+      eslint-import-resolver-typescript: 3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@4.7.2))(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0)
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.36.0)
       eslint-plugin-react: 7.32.2(eslint@8.36.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.36.0)
+    optionalDependencies:
       typescript: 4.7.2
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
@@ -1895,12 +1898,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5)(eslint@8.36.0):
+  eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0):
     dependencies:
       debug: 4.3.4
       enhanced-resolve: 5.12.0
       eslint: 8.36.0
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@4.7.2))(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0)
       get-tsconfig: 4.4.0
       globby: 13.1.3
       is-core-module: 2.11.0
@@ -1909,19 +1912,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.7.4(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0):
+  eslint-module-utils@2.7.4(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@4.7.2))(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0):
     dependencies:
-      '@typescript-eslint/parser': 5.55.0(eslint@8.36.0)(typescript@4.7.2)
       debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 5.55.0(eslint@8.36.0)(typescript@4.7.2)
       eslint: 8.36.0
       eslint-import-resolver-node: 0.3.7
-      eslint-import-resolver-typescript: 3.5.3(eslint-plugin-import@2.27.5)(eslint@8.36.0)
+      eslint-import-resolver-typescript: 3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0)
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0):
+  eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@4.7.2))(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0):
     dependencies:
-      '@typescript-eslint/parser': 5.55.0(eslint@8.36.0)(typescript@4.7.2)
       array-includes: 3.1.6
       array.prototype.flat: 1.3.1
       array.prototype.flatmap: 1.3.1
@@ -1929,7 +1932,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.36.0
       eslint-import-resolver-node: 0.3.7
-      eslint-module-utils: 2.7.4(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
+      eslint-module-utils: 2.7.4(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@4.7.2))(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0)
       has: 1.0.3
       is-core-module: 2.11.0
       is-glob: 4.0.3
@@ -1938,6 +1941,8 @@ snapshots:
       resolve: 1.22.1
       semver: 6.3.0
       tsconfig-paths: 3.14.2
+    optionalDependencies:
+      '@typescript-eslint/parser': 5.55.0(eslint@8.36.0)(typescript@4.7.2)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -2403,12 +2408,12 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@13.2.5-canary.30(react-dom@18.2.0)(react@18.2.0):
+  next@13.2.5-canary.30(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@next/env': 13.2.5-canary.30
       '@swc/helpers': 0.4.14
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001466
+      caniuse-lite: 1.0.30001676
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2538,8 +2543,9 @@ snapshots:
   postcss-load-config@3.1.4(postcss@8.4.21):
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.21
       yaml: 1.10.2
+    optionalDependencies:
+      postcss: 8.4.21
 
   postcss-nested@6.0.0(postcss@8.4.21):
     dependencies:
