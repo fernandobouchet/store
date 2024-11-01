@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import React from "react";
 import getProducts from "../../lib/getProducts";
-import { Page } from "@vercel/examples-ui";
 import Head from "next/head";
 import PaginationPage from "../../components/PaginatedPage";
 
@@ -15,7 +14,7 @@ export const PER_PAGE = 5;
 
 function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
   return (
-    <Page>
+    <>
       <Head>
         <title>Page {currentPage} - SSG Pagination Example</title>
         <meta
@@ -31,7 +30,7 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
         perPage={PER_PAGE}
         category="laptop"
       />
-    </Page>
+    </>
   );
 }
 

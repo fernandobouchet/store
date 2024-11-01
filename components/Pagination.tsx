@@ -1,15 +1,14 @@
-import Link from 'next/link'
-import React from 'react'
-import usePagination from '../hooks/usePagination'
+import Link from "next/link";
+import usePagination from "../hooks/usePagination";
 
 export type PaginationProps = {
-  totalItems: number
-  currentPage: number
-  renderPageLink: (page: number) => string
-  itemsPerPage?: number
-}
+  totalItems: number;
+  currentPage: number;
+  renderPageLink: (page: number) => string;
+  itemsPerPage?: number;
+};
 
-export const dotts = '...'
+export const dotts = "...";
 
 const Pagination = ({
   totalItems,
@@ -17,7 +16,7 @@ const Pagination = ({
   itemsPerPage = 10,
   renderPageLink,
 }: PaginationProps) => {
-  const pages = usePagination(totalItems, currentPage, itemsPerPage)
+  const pages = usePagination(totalItems, currentPage, itemsPerPage);
 
   return (
     <div className="flex items-center justify-center my-8">
@@ -34,7 +33,7 @@ const Pagination = ({
             key={i}
             href={renderPageLink(pageNumber as number)}
             className={`${
-              pageNumber === currentPage ? 'text-success-dark' : 'text-black'
+              pageNumber === currentPage ? "text-success-dark" : "text-black"
             } px-4 py-2 mx-1 rounded-full text-sm font-semibold no-underline`}
           >
             {pageNumber}
@@ -42,7 +41,7 @@ const Pagination = ({
         )
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

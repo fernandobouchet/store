@@ -1,12 +1,11 @@
 import { GetStaticProps } from "next";
-import { Page } from "@vercel/examples-ui";
 import getProducts from "../../lib/getProducts";
 import { PER_PAGE } from "./[page]";
 import PaginationPage from "../../components/PaginatedPage";
 
 function Pc({ products, totalProducts, currentPage }: any) {
   return (
-    <Page>
+    <>
       <PaginationPage
         products={products}
         currentPage={currentPage}
@@ -14,7 +13,7 @@ function Pc({ products, totalProducts, currentPage }: any) {
         perPage={PER_PAGE}
         category="pc"
       />
-    </Page>
+    </>
   );
 }
 

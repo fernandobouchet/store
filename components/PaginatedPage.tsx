@@ -1,5 +1,3 @@
-import React from "react";
-import { Text } from "@vercel/examples-ui";
 import Pagination from "./Pagination";
 
 type PageProps = {
@@ -12,13 +10,9 @@ type PageProps = {
 
 const ProductCard = ({ titulo, descripcion, precio }: any) => (
   <div className="my-10 border-2 border-sky-500 p-3">
-    <Text variant="h2">{titulo}</Text>
-    <Text variant="smallText" className="my-3">
-      ${precio}
-    </Text>
-    <Text variant="body" className="my-8">
-      {descripcion.en}
-    </Text>
+    <p>{titulo}</p>
+    <p className="my-3">${precio}</p>
+    <p className="my-8">{descripcion.en}</p>
   </div>
 );
 
@@ -31,7 +25,7 @@ const PaginationPage = ({
 }: PageProps): JSX.Element => {
   return (
     <div>
-      <Text variant="h1">Page {currentPage}</Text>
+      <p>Page {currentPage}</p>
       <Pagination
         totalItems={totalProducts}
         currentPage={currentPage}
