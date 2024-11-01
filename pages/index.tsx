@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import {
   Layout,
   Text,
@@ -7,8 +7,8 @@ import {
   Link,
   List,
   Code,
-} from '@vercel/examples-ui'
-import buildScreenShot from '../public/build.png'
+} from "@vercel/examples-ui";
+import buildScreenShot from "../public/build.png";
 
 function Home() {
   return (
@@ -18,15 +18,15 @@ function Home() {
           Pagination with SSG
         </Text>
         <Text className="mb-4">
-          This example shows how to implement page based pagination with{' '}
+          This example shows how to implement page based pagination with{" "}
           <Link href="https://nextjs.org/docs/basic-features/data-fetching/get-static-props">
             SSG
-          </Link>{' '}
+          </Link>{" "}
           in Next.js.
         </Text>
         <Text className="mb-4">
           The first 5 paginated pages are cached in the edge at build time, and
-          the rest are incrementally cached using{' '}
+          the rest are incrementally cached using{" "}
           <Link href="https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration">
             ISR
           </Link>
@@ -71,9 +71,9 @@ export const getStaticPaths = async () => {
         </Link>
       </section>
     </Page>
-  )
+  );
 }
 
-Home.Layout = Layout
+Home.Layout = Layout;
 
-export default Home
+export default Home;
