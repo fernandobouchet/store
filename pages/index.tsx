@@ -1,13 +1,5 @@
 import Image from "next/image";
-import {
-  Layout,
-  Text,
-  Page,
-  Button,
-  Link,
-  List,
-  Code,
-} from "@vercel/examples-ui";
+import { Text, Page, Button, Link, List, Code } from "@vercel/examples-ui";
 import buildScreenShot from "../public/build.png";
 
 function Home() {
@@ -73,7 +65,5 @@ export const getStaticPaths = async () => {
     </Page>
   );
 }
-
-Home.Layout = Layout;
 
 export default Home;

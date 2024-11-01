@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { Layout, Page } from "@vercel/examples-ui";
+import { Page } from "@vercel/examples-ui";
 import getProducts from "../../lib/getProducts";
 import { PER_PAGE } from "./[page]";
 import PaginationPage from "../../components/PaginatedPage";
@@ -35,7 +35,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-
-Laptop.Layout = Layout;
 
 export default Laptop;

@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import React from "react";
 import getProducts from "../../lib/getProducts";
-import { Layout, Page } from "@vercel/examples-ui";
+import { Page } from "@vercel/examples-ui";
 import Head from "next/head";
 import PaginationPage from "../../components/PaginatedPage";
 
@@ -34,8 +34,6 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
     </Page>
   );
 }
-
-PaginatedPage.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({
   params,
