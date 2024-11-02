@@ -9,13 +9,20 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 
 import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const path = usePathname();
 
-  const menuItems = ["Home", "Laptop", "pc", "Log Out"];
+  const menuItems = [
+    { title: "Home", href: "/" },
+    { title: "Laptop", href: "/laptop" },
+    { title: "pc", href: "/pc" },
+    { title: "Log Out" },
+  ];
 
   return (
     <Nav
@@ -50,14 +57,14 @@ export default function Navbar() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="/laptop">
+        <NavbarItem isActive={path === "/laptop"}>
+          <Link href="/laptop" aria-current="page">
             Laptops
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem isActive={path === "/pc"}>
           <Link href="/pc" aria-current="page">
-            PC's
+            PC&apos;s
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -73,20 +80,20 @@ export default function Navbar() {
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.title}-${index}`}>
             <Link
               color={
-                index === 2
+                path === item.href
                   ? "primary"
                   : index === menuItems.length - 1
                   ? "danger"
                   : "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.href}
               size="lg"
             >
-              {item}
+              {item.title}
             </Link>
           </NavbarMenuItem>
         ))}
