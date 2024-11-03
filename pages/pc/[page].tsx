@@ -10,7 +10,7 @@ type PageProps = {
   totalProducts: number;
 };
 
-export const PER_PAGE = 5;
+export const PER_PAGE = 4;
 
 function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
   return (
@@ -23,6 +23,7 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1 className="text-3xl lg:text-4xl font-semibold text-primary">Pcs</h1>
       <PaginationPage
         products={products}
         currentPage={currentPage}
@@ -40,9 +41,9 @@ export const getStaticProps: GetStaticProps = async ({
   const page = Number(params?.page) || 1;
   const res = await fetch(`${process.env.API_URL}/pcs`);
   const data = await res.json();
-  const { products, total } = await getProducts({
+  const { products, total } = getProducts({
     limit: PER_PAGE,
-    page: 1,
+    page: page,
     products: data,
   });
   if (!products.length) {

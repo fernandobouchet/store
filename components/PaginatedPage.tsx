@@ -1,20 +1,14 @@
+import { product } from "../types";
 import Pagination from "./Pagination";
+import ProductCard from "./productCard";
 
 type PageProps = {
-  products: any[];
+  products: product[];
   currentPage: number;
   totalProducts: number;
   perPage: number;
   category: string;
 };
-
-const ProductCard = ({ titulo, descripcion, precio }: any) => (
-  <div className="my-10 border-2 border-sky-500 p-3">
-    <p>{titulo}</p>
-    <p className="my-3">${precio}</p>
-    <p className="my-8">{descripcion.en}</p>
-  </div>
-);
 
 const PaginationPage = ({
   currentPage,
@@ -24,17 +18,17 @@ const PaginationPage = ({
   category,
 }: PageProps): JSX.Element => {
   return (
-    <div>
-      <p>Page {currentPage}</p>
+    <div className="pb-20">
+      <p className="text-primary-500">Page {currentPage}</p>
       <Pagination
         totalItems={totalProducts}
         currentPage={currentPage}
         itemsPerPage={perPage}
         renderPageLink={(page) => `/${category}/${page}`}
       />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 gap-4">
         {products.map((product, i) => (
-          <ProductCard key={i} {...product} />
+          <ProductCard key={i} product={product} />
         ))}
       </div>
     </div>

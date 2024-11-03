@@ -2,10 +2,18 @@ import { GetStaticProps } from "next";
 import getProducts from "../../lib/getProducts";
 import { PER_PAGE } from "./[page]";
 import PaginationPage from "../../components/PaginatedPage";
+import { product } from "../../types";
 
-function Pc({ products, totalProducts, currentPage }: any) {
+interface Props {
+  products: product[];
+  totalProducts: number;
+  currentPage: number;
+}
+
+function Pc({ products, totalProducts, currentPage }: Props) {
   return (
     <>
+      <h1 className="text-3xl lg:text-4xl font-semibold text-primary">Pcs</h1>
       <PaginationPage
         products={products}
         currentPage={currentPage}
@@ -20,7 +28,7 @@ function Pc({ products, totalProducts, currentPage }: any) {
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${process.env.API_URL}/pcs`);
   const data = await res.json();
-  const { products, total } = await getProducts({
+  const { products, total } = getProducts({
     limit: PER_PAGE,
     page: 1,
     products: data,

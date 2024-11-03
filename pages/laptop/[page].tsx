@@ -10,7 +10,7 @@ type PageProps = {
   totalProducts: number;
 };
 
-export const PER_PAGE = 5;
+export const PER_PAGE = 4;
 
 function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
   return (
@@ -23,6 +23,9 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1 className="text-3xl lg:text-4xl font-semibold text-primary">
+        Laptops
+      </h1>
       <PaginationPage
         products={products}
         currentPage={currentPage}
@@ -43,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({
   const data = await res.json();
   const { products, total } = await getProducts({
     limit: PER_PAGE,
-    page: 1,
+    page: page,
     products: data,
   });
   if (!products.length) {
