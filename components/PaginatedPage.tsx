@@ -19,7 +19,6 @@ const PaginationPage = ({
 }: PageProps): JSX.Element => {
   return (
     <div className="pb-20">
-      <p className="text-primary-500">Page {currentPage}</p>
       <Pagination
         totalItems={totalProducts}
         currentPage={currentPage}
@@ -31,6 +30,12 @@ const PaginationPage = ({
           <ProductCard key={i} product={product} />
         ))}
       </div>
+      <Pagination
+        totalItems={totalProducts}
+        currentPage={currentPage}
+        itemsPerPage={perPage}
+        renderPageLink={(page) => `/${category}/${page}`}
+      />
     </div>
   );
 };

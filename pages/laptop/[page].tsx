@@ -23,9 +23,6 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-3xl lg:text-4xl font-semibold text-primary">
-        Laptops
-      </h1>
       <PaginationPage
         products={products}
         currentPage={currentPage}

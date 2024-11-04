@@ -12,16 +12,13 @@ interface Props {
 
 function Pc({ products, totalProducts, currentPage }: Props) {
   return (
-    <>
-      <h1 className="text-3xl lg:text-4xl font-semibold text-primary">Pcs</h1>
-      <PaginationPage
-        products={products}
-        currentPage={currentPage}
-        totalProducts={totalProducts}
-        perPage={PER_PAGE}
-        category="pc"
-      />
-    </>
+    <PaginationPage
+      products={products}
+      currentPage={currentPage}
+      totalProducts={totalProducts}
+      perPage={PER_PAGE}
+      category="pc"
+    />
   );
 }
 
