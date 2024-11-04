@@ -3,9 +3,9 @@ import Navbar from "./navbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <NextUIProvider className="dark text-foreground bg-background">
+    <NextUIProvider className="text-foreground bg-background">
       <Navbar />
-      <main className="container flex flex-col mx-auto px-4 h-full">
+      <main className="container flex flex-col mx-auto px-4 min-h-[100dvh] h-full">
         {children}
       </main>
     </NextUIProvider>
