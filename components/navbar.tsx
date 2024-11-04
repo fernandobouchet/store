@@ -43,6 +43,7 @@ export default function Navbar() {
           "data-[active=true]:after:bg-primary",
         ],
       }}
+      className="[&_header]:max-w-none"
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -51,19 +52,21 @@ export default function Navbar() {
         />
         <NavbarBrand>
           <Link href="/">
-            <p className="font-bold text-inherit">STORE</p>
+            <p className="font-bold text-inherit text-2xl lg:text-3xl">
+              TechStore
+            </p>
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive={path === "/laptop"}>
-          <Link href="/laptop" aria-current="page">
+        <NavbarItem isActive={path.startsWith("/laptop")}>
+          <Link href="/laptop" aria-current="page" className="text-xl ">
             Laptops
           </Link>
         </NavbarItem>
-        <NavbarItem isActive={path === "/pc"}>
-          <Link href="/pc" aria-current="page">
+        <NavbarItem isActive={path.startsWith("/pc")}>
+          <Link href="/pc" aria-current="page" className="text-xl">
             PC&apos;s
           </Link>
         </NavbarItem>
