@@ -10,7 +10,7 @@ type PageProps = {
   totalProducts: number;
 };
 
-export const PER_PAGE = 4;
+export const PER_PAGE = 6;
 
 function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
   return (

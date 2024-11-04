@@ -26,7 +26,7 @@ const PaginationPage = ({
         itemsPerPage={perPage}
         renderPageLink={(page) => `/${category}/${page}`}
       />
-      <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product, i) => (
           <ProductCard key={i} product={product} />
         ))}

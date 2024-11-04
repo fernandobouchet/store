@@ -13,7 +13,7 @@ export const dotts = "...";
 const Pagination = ({
   totalItems,
   currentPage,
-  itemsPerPage = 10,
+  itemsPerPage = 6,
   renderPageLink,
 }: PaginationProps) => {
   const pages = usePagination(totalItems, currentPage, itemsPerPage);
