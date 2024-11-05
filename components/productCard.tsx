@@ -17,7 +17,7 @@ export default function ProductCard({ product, category }: Props) {
         </CardHeader>
         <CardBody className="relative py-2 overflow-hidden w-80 h-80 bg-white">
           <Image
-            alt="Card background"
+            alt={`${product.titulo} imagen.`}
             className="absolute object-contain rounded-xl"
             fill
             sizes="(min-width: 808px) 50vw, 100vw"

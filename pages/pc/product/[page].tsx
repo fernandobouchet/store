@@ -3,6 +3,7 @@ import React from "react";
 import Head from "next/head";
 import getSingleProduct from "../../../lib/getSingleProduct";
 import { product } from "../../../types";
+import SingleProductPageContainer from "../../../components/singleProductPageContainer";
 
 type PageProps = {
   product: product;
@@ -20,10 +21,7 @@ function PaginatedPage({ product, page }: PageProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <h1>{product.titulo}</h1>
-        <p>{page}</p>
-      </div>
+      <SingleProductPageContainer product={product} />
     </>
   );
 }
