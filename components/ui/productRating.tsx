@@ -23,5 +23,5 @@ export default function ProductRating({ rating }: Props) {
     );
   }
 
-  return stars;
+  return <div className="flex">{stars}</div>;
 }
