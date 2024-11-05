@@ -52,8 +52,11 @@ export default function SingleProduct({ product }: Props) {
               <h1 className="text-2xl font-semibold text-foreground">
                 {product.titulo}
               </h1>
-              <div className="flex">
+              <div className="flex items-center">
                 <ProductRating rating={product.rating} />
+                <span className="ml-2 text-small text-foreground/80">
+                  ({product.rating})
+                </span>
               </div>
               <p className="text-small text-foreground/80">
                 Stock: {product.stock}.
