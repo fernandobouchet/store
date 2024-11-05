@@ -3,9 +3,10 @@ import React from "react";
 import getProducts from "../../lib/getProducts";
 import Head from "next/head";
 import PaginationPage from "../../components/PaginatedPage";
+import { product } from "../../types";
 
 type PageProps = {
-  products: any[];
+  products: product[];
   currentPage: number;
   totalProducts: number;
 };

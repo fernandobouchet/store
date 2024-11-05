@@ -1,4 +1,5 @@
 type product = {
+  id: number;
   titulo: string;
   precio: number;
   descripcion: {
