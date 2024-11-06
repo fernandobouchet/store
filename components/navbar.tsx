@@ -10,11 +10,18 @@ import {
   Button,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
+import { MdFavorite } from "react-icons/md";
+import { IoCart } from "react-icons/io5";
 
 import { useState } from "react";
+import Cart from "./cart";
+import Favs from "./favs";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isFavOpen, setIsFavOpen] = useState(false);
+
   const path = usePathname();
 
   const menuItems = [
@@ -71,16 +78,34 @@ export default function Navbar() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+      <NavbarContent justify="end" className="flex gap-0">
+        <NavbarItem className="hidden lg:flex w-fit">
+          <Button
+            color="primary"
+            variant="light"
+            className="min-w-fit px-2"
+            onClick={() => setIsFavOpen(!isFavOpen)}
+          >
+            <MdFavorite className="h-6 w-6" />
+          </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button
+            color="primary"
+            variant="light"
+            className="min-w-fit px-2"
+            onClick={() => setIsCartOpen(!isCartOpen)}
+          >
+            <IoCart className="h-6 w-6" />
           </Button>
         </NavbarItem>
       </NavbarContent>
+      <Cart
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        title="Cart"
+      />
+      <Favs isFavOpen={isFavOpen} setIsFavOpen={setIsFavOpen} title="Favs" />
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.title}-${index}`}>
