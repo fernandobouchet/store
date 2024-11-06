@@ -20,24 +20,28 @@ export default function Drawer({
   const onClose = () => {
     setIsVisible(false);
     setTimeout(() => setIsCartOpen(false), 300);
-    document.body.style.overflow = "";
   };
 
   useEffect(() => {
     if (isCartOpen) {
       setIsVisible(true);
       document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isCartOpen]);
 
   if (!isCartOpen && !isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 h-screen overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 h-screen">
       <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
       <div
-        className={`fixed right-0 top-0 min-h-screen w-full max-w-sm bg-background shadow-xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
-          isVisible ? "translate-x-0 overflow-hidden" : "translate-x-full"
+        className={`fixed right-0 top-0 min-h-screen w-full max-w-sm bg-background shadow-xl transform transition-transform duration-300 ease-in-out ${
+          isVisible ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
