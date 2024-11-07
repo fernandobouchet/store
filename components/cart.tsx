@@ -1,24 +1,23 @@
 import { Dispatch, SetStateAction } from "react";
 import Drawer from "./ui/drawer";
+import { useShop } from "../context/ShopContext";
 
 interface Props {
   isCartOpen: boolean;
   setIsCartOpen: Dispatch<SetStateAction<boolean>>;
   title: string;
-  children?: React.ReactNode;
 }
 
-export default function Cart({
-  isCartOpen,
-  setIsCartOpen,
-  title,
-  children,
-}: Props) {
+export default function Cart({ isCartOpen, setIsCartOpen, title }: Props) {
+  const { cart } = useShop();
+
   return (
-    <Drawer
-      isCartOpen={isCartOpen}
-      setIsCartOpen={setIsCartOpen}
-      title={title}
-    />
+    <Drawer isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} title={title}>
+      <div>
+        {cart.map((item) => (
+          <p key={item.id}>{item.titulo}</p>
+        ))}
+      </div>
+    </Drawer>
   );
 }

@@ -6,13 +6,44 @@ import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { product } from "../types";
 import Image from "next/image";
 import ProductRating from "./ui/productRating";
+import { useShop } from "../context/ShopContext";
 
 interface Props {
   product: product;
 }
 
 export default function SingleProduct({ product }: Props) {
-  const [liked, setLiked] = useState(false);
+  const {
+    favourites,
+    cart,
+    addFavourite,
+    removeFavourite,
+    addToCart,
+    removeFromCart,
+  } = useShop();
+
+  const [liked, setLiked] = useState<product | null>(
+    favourites.find((item) => item.id === product.id) ? product : null
+  );
+
+  const handleFavourite = (product: product) => {
+    if (favourites.find((item) => item.id === product.id)) {
+      removeFavourite(product);
+      setLiked(null);
+    } else {
+      addFavourite(product);
+      setLiked(product);
+    }
+  };
+
+  const handleCart = (product: product) => {
+    if (cart.find((item) => item.id === product.id)) {
+      removeFromCart(product);
+    } else {
+      addToCart(product);
+    }
+  };
+
   return (
     <Card
       isBlurred
@@ -36,7 +67,7 @@ export default function SingleProduct({ product }: Props) {
               className="ml-auto"
               radius="full"
               variant="light"
-              onPress={() => setLiked((v) => !v)}
+              onPress={() => handleFavourite(product)}
             >
               {liked ? (
                 <IoIosHeart className="w-6 h-6" fill="#005bee" />
@@ -68,7 +99,12 @@ export default function SingleProduct({ product }: Props) {
                 ${product.precio.toLocaleString()}
               </span>
             </div>
-            <Button color="primary" variant="shadow" className="mt-auto">
+            <Button
+              color="primary"
+              variant="shadow"
+              className="mt-auto"
+              onPress={() => handleCart(product)}
+            >
               <FaCartPlus /> Add to cart
             </Button>
           </div>
