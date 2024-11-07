@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import Drawer from "./ui/drawer";
 import { useShop } from "../context/ShopContext";
+import SingleProductSmallCard from "./singleProductSmallCard";
 
 interface Props {
   isFavOpen: boolean;
@@ -15,7 +16,7 @@ export default function Favs({ isFavOpen, setIsFavOpen, title }: Props) {
     <Drawer isCartOpen={isFavOpen} setIsCartOpen={setIsFavOpen} title={title}>
       <div>
         {favourites.map((item) => (
-          <p key={item.id}>{item.titulo}</p>
+          <SingleProductSmallCard key={item.id} product={item} />
         ))}
       </div>
     </Drawer>

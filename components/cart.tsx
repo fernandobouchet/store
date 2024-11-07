@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import Drawer from "./ui/drawer";
 import { useShop } from "../context/ShopContext";
+import SingleProductSmallCard from "./singleProductSmallCard";
 
 interface Props {
   isCartOpen: boolean;
@@ -15,7 +16,7 @@ export default function Cart({ isCartOpen, setIsCartOpen, title }: Props) {
     <Drawer isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} title={title}>
       <div>
         {cart.map((item) => (
-          <p key={item.id}>{item.titulo}</p>
+          <SingleProductSmallCard key={item.id} product={item} />
         ))}
       </div>
     </Drawer>
