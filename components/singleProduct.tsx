@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardBody, Button } from "@nextui-org/react";
-import { FaCartPlus } from "react-icons/fa6";
+import { FaCartPlus, FaCartArrowDown } from "react-icons/fa6";
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 
 import { product } from "../types";
@@ -26,6 +26,10 @@ export default function SingleProduct({ product }: Props) {
     favourites.find((item) => item.id === product.id) ? product : null
   );
 
+  const [inCart, setInCart] = useState<product | null>(
+    cart.find((item) => item.id === product.id) ? product : null
+  );
+
   const handleFavourite = (product: product) => {
     if (favourites.find((item) => item.id === product.id)) {
       removeFavourite(product);
@@ -39,8 +43,10 @@ export default function SingleProduct({ product }: Props) {
   const handleCart = (product: product) => {
     if (cart.find((item) => item.id === product.id)) {
       removeFromCart(product);
+      setInCart(null);
     } else {
       addToCart(product);
+      setInCart(product);
     }
   };
 
@@ -105,7 +111,15 @@ export default function SingleProduct({ product }: Props) {
               className="mt-auto"
               onPress={() => handleCart(product)}
             >
-              <FaCartPlus /> Add to cart
+              {inCart ? (
+                <>
+                  <FaCartPlus /> Add to cart
+                </>
+              ) : (
+                <>
+                  <FaCartArrowDown /> Remove from cart
+                </>
+              )}
             </Button>
           </div>
         </div>
