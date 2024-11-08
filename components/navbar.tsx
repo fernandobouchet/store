@@ -96,7 +96,8 @@ export default function Navbar() {
             onClick={handleFavouriteOpen}
           >
             <Badge
-              content={favourites?.length >= 1 ? favourites.length : null}
+              isInvisible={favourites?.length === 0}
+              content={favourites?.length}
               color="primary"
               placement="bottom-right"
             >
@@ -112,7 +113,8 @@ export default function Navbar() {
             onClick={handleCartOpen}
           >
             <Badge
-              content={cart?.length >= 1 ? cart.length : null}
+              isInvisible={cart?.length === 0}
+              content={cart?.length}
               color="primary"
               placement="bottom-right"
             >
