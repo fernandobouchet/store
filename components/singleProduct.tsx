@@ -111,7 +111,7 @@ export default function SingleProduct({ product }: Props) {
               className="mt-auto"
               onPress={() => handleCart(product)}
             >
-              {inCart ? (
+              {!inCart ? (
                 <>
                   <FaCartPlus /> Add to cart
                 </>

@@ -10,7 +10,7 @@ export default function SingleProductSmallCard({ product }: Props) {
     <Card isBlurred className="w-full border-none bg-inherit h-20" shadow="sm">
       <CardBody className="p-0">
         <div className="flex h-full items-center">
-          <div className="flex relative overflow-hidden w-full lg:w-16 h-16 bg-white rounded-xl">
+          <div className="flex relative overflow-hidden w-16 h-16 bg-white rounded-xl">
             <Image
               alt={`${product.titulo} imagen.`}
               className="absolute object-contain rounded-3xl"

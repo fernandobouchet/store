@@ -2,7 +2,7 @@ import { Link } from "@nextui-org/react";
 
 export default function Footer() {
   return (
-    <footer className="absolute lg:bottom-0 w-full bg-background border-t border-divider p-2 mt-auto">
+    <footer className="w-full bg-background border-t border-divider mt-10 p-2">
       <div className="container mx-auto px-4 text-center text-default-500">
         <p>&copy; 2024 TechStore. All rights reserved.</p>
         <div className="mt-4 space-x-4">
