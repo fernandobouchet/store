@@ -8,6 +8,7 @@ import {
   NavbarMenuItem,
   Link,
   Button,
+  Badge,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { MdFavorite } from "react-icons/md";
@@ -20,6 +21,8 @@ export default function Navbar() {
     handleFavouriteOpen,
     isMobileMenuOpen,
     handleMobileMenuOpen,
+    favourites,
+    cart,
   } = useShop();
 
   const path = usePathname();
@@ -92,7 +95,13 @@ export default function Navbar() {
             className="min-w-fit px-2"
             onClick={handleFavouriteOpen}
           >
-            <MdFavorite className="h-6 w-6" />
+            <Badge
+              content={favourites?.length >= 1 ? favourites.length : null}
+              color="primary"
+              placement="bottom-right"
+            >
+              <MdFavorite className="h-6 w-6" />{" "}
+            </Badge>
           </Button>
         </NavbarItem>
         <NavbarItem>
@@ -102,7 +111,13 @@ export default function Navbar() {
             className="min-w-fit px-2"
             onClick={handleCartOpen}
           >
-            <IoCart className="h-6 w-6" />
+            <Badge
+              content={cart?.length >= 1 ? cart.length : null}
+              color="primary"
+              placement="bottom-right"
+            >
+              <IoCart className="h-6 w-6" />{" "}
+            </Badge>
           </Button>
         </NavbarItem>
       </NavbarContent>
