@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardBody, Button } from "@nextui-org/react";
+import { Card, CardBody, Button, Chip } from "@nextui-org/react";
 import { FaCartPlus, FaCartArrowDown } from "react-icons/fa6";
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 
@@ -96,7 +96,9 @@ export default function SingleProduct({ product }: Props) {
                 </span>
               </div>
               <p className="text-small text-foreground/80">
-                Stock: {product.stock}.
+                <Chip variant="flat" color="primary">
+                  Stock: {product.stock}
+                </Chip>
               </p>
               <p className="text-medium font-medium">
                 {product.descripcion.en}
