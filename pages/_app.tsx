@@ -4,6 +4,8 @@ import "../globals.css";
 import { useRouter } from "next/router";
 import PcSectionLayout from "../components/pcSectionLayout";
 import LaptopSectionLayout from "../components/laptopSectionLayout";
+import Cart from "../components/cart";
+import Favs from "../components/favs";
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -13,6 +15,10 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <Layout>
+      <>
+        <Cart />
+        <Favs />
+      </>
       {isPcSectionRoute ? (
         <PcSectionLayout>
           <Component {...pageProps} />

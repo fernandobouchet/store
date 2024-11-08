@@ -12,28 +12,27 @@ import {
 import { usePathname } from "next/navigation";
 import { MdFavorite } from "react-icons/md";
 import { IoCart } from "react-icons/io5";
-
-import { useState } from "react";
-import Cart from "./cart";
-import Favs from "./favs";
+import { useShop } from "../context/ShopContext";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isFavOpen, setIsFavOpen] = useState(false);
+  const {
+    handleCartOpen,
+    handleFavouriteOpen,
+    isMobileMenuOpen,
+    handleMobileMenuOpen,
+  } = useShop();
 
   const path = usePathname();
 
   const menuItems = [
     { title: "Home", href: "/" },
     { title: "Laptop", href: "/laptop" },
-    { title: "pc", href: "/pc" },
-    { title: "Log Out" },
+    { title: "Pc", href: "/pc" },
   ];
 
   return (
     <Nav
-      onMenuOpenChange={setIsMenuOpen}
+      onMenuOpenChange={handleMobileMenuOpen}
       classNames={{
         item: [
           "flex",
@@ -54,7 +53,7 @@ export default function Navbar() {
     >
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
@@ -78,13 +77,20 @@ export default function Navbar() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end" className="flex gap-0">
-        <NavbarItem className="hidden lg:flex w-fit">
+      <NavbarContent
+        justify="end"
+        className={`gap-2 transition-opacity duration-300 ${
+          isMobileMenuOpen
+            ? "opacity-0 pointer-events-none"
+            : "opacity-100 flex"
+        }`}
+      >
+        <NavbarItem>
           <Button
             color="primary"
             variant="light"
             className="min-w-fit px-2"
-            onClick={() => setIsFavOpen(!isFavOpen)}
+            onClick={handleFavouriteOpen}
           >
             <MdFavorite className="h-6 w-6" />
           </Button>
@@ -94,29 +100,18 @@ export default function Navbar() {
             color="primary"
             variant="light"
             className="min-w-fit px-2"
-            onClick={() => setIsCartOpen(!isCartOpen)}
+            onClick={handleCartOpen}
           >
             <IoCart className="h-6 w-6" />
           </Button>
         </NavbarItem>
       </NavbarContent>
-      <Cart
-        isCartOpen={isCartOpen}
-        setIsCartOpen={setIsCartOpen}
-        title="Cart"
-      />
-      <Favs isFavOpen={isFavOpen} setIsFavOpen={setIsFavOpen} title="Favs" />
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.title}-${index}`}>
             <Link
-              color={
-                path === item.href
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
+              color={path === item.href ? "primary" : "foreground"}
               className="w-full"
               href={item.href}
               size="lg"

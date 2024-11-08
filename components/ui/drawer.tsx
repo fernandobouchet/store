@@ -40,9 +40,14 @@ export default function Drawer({
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 h-screen">
       <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
       <div
-        className={`fixed right-0 top-0 min-h-screen w-full max-w-sm bg-background shadow-xl transform transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 min-h-screen w-full max-w-sm bg-background shadow-xl transform transition-transform duration-300 ease-[cubic-bezier(0.25, 0.8, 0.5, 1)] ${
           isVisible ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{
+          transform: isVisible
+            ? "translate3d(0, 0, 0)"
+            : "translate3d(100%, 0, 0)",
+        }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="side-menu-title"
