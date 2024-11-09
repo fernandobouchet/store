@@ -17,7 +17,7 @@ const emptyInitialI18NextConfig: UserConfig = {
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const isPcSectionRoute = router.pathname.startsWith("/pc");
+  const isPcSectionRoute = router.pathname.startsWith("/desktop");
   const isLaptopSectionRoute = router.pathname.startsWith("/laptop");
 
   return (

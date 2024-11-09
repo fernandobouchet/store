@@ -29,7 +29,7 @@ function PaginatedPage({ products, currentPage, totalProducts }: PageProps) {
         currentPage={currentPage}
         totalProducts={totalProducts}
         perPage={PER_PAGE}
-        category="pc"
+        category="desktop"
       />
     </>
   );
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({
   if (page === 1) {
     return {
       redirect: {
-        destination: "/pc",
+        destination: "/desktop",
         permanent: false,
       },
     };
@@ -76,7 +76,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     // Prerender the next 5 pages after the first page, which is handled by the index page.
     // Other pages will be prerendered at runtime.
-    paths: Array.from({ length: 5 }).map((_, i) => `/pc/${i + 2}`),
+    paths: Array.from({ length: 5 }).map((_, i) => `/desktop/${i + 2}`),
     // Block the request for non-generated pages and cache them in the background
     fallback: "blocking",
   };

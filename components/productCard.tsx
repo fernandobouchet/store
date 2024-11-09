@@ -2,6 +2,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import { product } from "../types";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {
   product: product;
@@ -9,8 +10,10 @@ interface Props {
 }
 
 export default function ProductCard({ product, category }: Props) {
+  const { locale } = useRouter();
+
   return (
-    <Link href={`/${category}/product/${product.id}`}>
+    <Link href={`/${locale}/${category}/product/${product.id}`}>
       <Card className="py-4 lg:max-w-md cursor-pointer">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <h4 className="font-bold text-large">{product.titulo}</h4>

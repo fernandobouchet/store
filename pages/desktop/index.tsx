@@ -18,7 +18,7 @@ function Pc({ products, totalProducts, currentPage }: Props) {
       currentPage={currentPage}
       totalProducts={totalProducts}
       perPage={PER_PAGE}
-      category="pc"
+      category="desktop"
     />
   );
 }

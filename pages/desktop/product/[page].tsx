@@ -62,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     // Prerender the next 5 pages after the first page, which is handled by the index page.
     // Other pages will be prerendered at runtime.
-    paths: data.map((product: product) => `/pc/product/${product.id}`),
+    paths: data.map((product: product) => `/desktop/product/${product.id}`),
     // Block the request for non-generated pages and cache them in the background
     fallback: "blocking",
   };

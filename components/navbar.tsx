@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { MdFavorite } from "react-icons/md";
 import { IoCart } from "react-icons/io5";
 import { useShop } from "../context/ShopContext";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const {
@@ -26,11 +27,12 @@ export default function Navbar() {
   } = useShop();
 
   const path = usePathname();
+  const { locale } = useRouter();
 
   const menuItems = [
     { title: "Home", href: "/" },
     { title: "Laptop", href: "/laptop" },
-    { title: "Pc", href: "/pc" },
+    { title: "Desktop", href: "/desktop" },
   ];
 
   return (
@@ -70,13 +72,21 @@ export default function Navbar() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive={path.startsWith("/laptop")}>
-          <Link href="/laptop" aria-current="page" className="text-xl ">
+          <Link
+            href={`/${locale}/laptop`}
+            aria-current="page"
+            className="text-xl"
+          >
             Laptops
           </Link>
         </NavbarItem>
-        <NavbarItem isActive={path.startsWith("/pc")}>
-          <Link href="/pc" aria-current="page" className="text-xl">
-            PC&apos;s
+        <NavbarItem isActive={path.startsWith("/desktop")}>
+          <Link
+            href={`/${locale}/desktop`}
+            aria-current="page"
+            className="text-xl"
+          >
+            Desktops
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -130,7 +140,7 @@ export default function Navbar() {
             <Link
               color={path === item.href ? "primary" : "foreground"}
               className="w-full"
-              href={item.href}
+              href={`/${locale}/item.href`}
               size="lg"
             >
               {item.title}

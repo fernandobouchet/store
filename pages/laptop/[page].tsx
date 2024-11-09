@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({
   const res = await fetch(`${process.env.API_URL}/laptops`);
 
   const data = await res.json();
-  const { products, total } = await getProducts({
+  const { products, total } = getProducts({
     limit: PER_PAGE,
     page: page,
     products: data,
