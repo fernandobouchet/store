@@ -15,6 +15,7 @@ import { MdFavorite } from "react-icons/md";
 import { IoCart } from "react-icons/io5";
 import { useShop } from "../context/ShopContext";
 import { useRouter } from "next/router";
+import LocaleToggle from "./localeToggle";
 
 export default function Navbar() {
   const {
@@ -98,6 +99,9 @@ export default function Navbar() {
             : "opacity-100 flex"
         }`}
       >
+        <NavbarItem>
+          <LocaleToggle />
+        </NavbarItem>
         <NavbarItem>
           <Button
             color="primary"
