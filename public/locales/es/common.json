@@ -1,4 +1,9 @@
 {
+  "nav": {
+    "home": "Inicio",
+    "laptop": "Notebooks",
+    "desktop": "Computadoras"
+  },
   "cart": {
     "title": "Carrito"
   },

@@ -1,4 +1,9 @@
 {
+  "nav": {
+    "home": "Home",
+    "laptop": "Laptops",
+    "desktop": "Desktops"
+  },
   "cart": {
     "title": "Cart"
   },

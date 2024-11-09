@@ -16,6 +16,7 @@ import { IoCart } from "react-icons/io5";
 import { useShop } from "../context/ShopContext";
 import { useRouter } from "next/router";
 import LocaleToggle from "./localeToggle";
+import { useTranslation } from "next-i18next";
 
 export default function Navbar() {
   const {
@@ -29,11 +30,12 @@ export default function Navbar() {
 
   const path = usePathname();
   const { locale } = useRouter();
+  const { t } = useTranslation("common");
 
   const menuItems = [
-    { title: "Home", href: "/" },
-    { title: "Laptop", href: "/laptop" },
-    { title: "Desktop", href: "/desktop" },
+    { title: t("nav.home"), href: "/" },
+    { title: t("nav.laptop"), href: "/laptop" },
+    { title: t("nav.desktop"), href: "/desktop" },
   ];
 
   return (
@@ -78,7 +80,7 @@ export default function Navbar() {
             aria-current="page"
             className="text-xl"
           >
-            Laptops
+            {t("nav.laptop")}
           </Link>
         </NavbarItem>
         <NavbarItem isActive={path.startsWith("/desktop")}>
@@ -87,7 +89,7 @@ export default function Navbar() {
             aria-current="page"
             className="text-xl"
           >
-            Desktops
+            {t("nav.desktop")}
           </Link>
         </NavbarItem>
       </NavbarContent>
