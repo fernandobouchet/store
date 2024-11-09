@@ -7,12 +7,17 @@ import { product } from "../types";
 import Image from "next/image";
 import ProductRating from "./ui/productRating";
 import { useShop } from "../context/ShopContext";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 interface Props {
   product: product;
 }
 
 export default function SingleProduct({ product }: Props) {
+  const { t } = useTranslation("singleProduct");
+  const { locale } = useRouter();
+
   const {
     favourites,
     cart,
@@ -101,7 +106,9 @@ export default function SingleProduct({ product }: Props) {
                 </Chip>
               </p>
               <p className="text-medium font-medium">
-                {product.descripcion.en}
+                {locale === "es"
+                  ? product.descripcion.es
+                  : product.descripcion.en}
               </p>
               <span className="text-default-900 text-large font-semibold">
                 ${product.precio.toLocaleString()}
@@ -115,11 +122,12 @@ export default function SingleProduct({ product }: Props) {
             >
               {!inCart ? (
                 <>
-                  <FaCartPlus /> Add to cart
+                  <FaCartPlus />
+                  {t("cartAdd")}
                 </>
               ) : (
                 <>
-                  <FaCartArrowDown /> Remove from cart
+                  <FaCartArrowDown /> {t("cartRemove")}
                 </>
               )}
             </Button>

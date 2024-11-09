@@ -3,6 +3,7 @@ import getProducts from "../../lib/getProducts";
 import { PER_PAGE } from "./[page]";
 import PaginationPage from "../../components/PaginatedPage";
 import { product } from "../../types";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface Props {
   products: product[];
@@ -22,7 +23,7 @@ function Pc({ products, totalProducts, currentPage }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const res = await fetch(`${process.env.API_URL}/pcs`);
   const data = await res.json();
   const { products, total } = getProducts({
@@ -36,6 +37,11 @@ export const getStaticProps: GetStaticProps = async () => {
       products,
       totalProducts: total,
       currentPage: 1,
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "singleProduct",
+        "footer",
+      ])),
     },
   };
 };
