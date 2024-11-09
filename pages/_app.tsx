@@ -4,8 +4,6 @@ import "../globals.css";
 import { useRouter } from "next/router";
 import PcSectionLayout from "../components/pcSectionLayout";
 import LaptopSectionLayout from "../components/laptopSectionLayout";
-import Cart from "../components/cart";
-import Favs from "../components/favs";
 import { appWithTranslation, UserConfig } from "next-i18next";
 import nextI18NextConfig from "../next-i18next.config.js";
 
@@ -24,10 +22,6 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <Layout>
-      <>
-        <Cart />
-        <Favs />
-      </>
       {isPcSectionRoute ? (
         <PcSectionLayout>
           <Component {...pageProps} />
