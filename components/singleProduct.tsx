@@ -100,11 +100,9 @@ export default function SingleProduct({ product }: Props) {
                   ({product.rating})
                 </span>
               </div>
-              <p className="text-small text-foreground/80">
-                <Chip variant="flat" color="primary">
-                  Stock: {product.stock}
-                </Chip>
-              </p>
+              <Chip variant="flat" color="primary">
+                Stock: {product.stock}
+              </Chip>
               <p className="text-medium font-medium">
                 {locale === "es"
                   ? product.descripcion.es
