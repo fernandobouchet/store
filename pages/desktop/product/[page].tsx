@@ -4,6 +4,7 @@ import Head from "next/head";
 import getSingleProduct from "../../../lib/getSingleProduct";
 import { product } from "../../../types";
 import SingleProductPageContainer from "../../../components/singleProductPageContainer";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type PageProps = {
   product: product;
@@ -28,6 +29,7 @@ function PaginatedPage({ product, page }: PageProps) {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
+  locale,
 }: GetStaticPropsContext) => {
   const page = Number(params?.page) || 1;
   const res = await fetch(`${process.env.API_URL}/pcs`);
@@ -49,6 +51,11 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       product,
       page: page,
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "singleProduct",
+        "footer",
+      ])),
     },
     revalidate: 60 * 60 * 24, // <--- ISR cache: once a day
   };

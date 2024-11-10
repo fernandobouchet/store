@@ -37,11 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       products,
       totalProducts: total,
       currentPage: 1,
-      ...(await serverSideTranslations(locale!, [
-        "common",
-        "singleProduct",
-        "footer",
-      ])),
+      ...(await serverSideTranslations(locale!, ["common", "footer"])),
     },
   };
 };
