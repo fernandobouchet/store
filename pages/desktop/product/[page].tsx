@@ -61,16 +61,20 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const res = await fetch(`${process.env.API_URL}/pcs`);
 
   const data = await res.json();
 
+  const paths = data.flatMap((product: product) =>
+    locales?.map((locale) => ({
+      params: { page: product.id.toString() },
+      locale,
+    }))
+  );
+
   return {
-    // Prerender the next 5 pages after the first page, which is handled by the index page.
-    // Other pages will be prerendered at runtime.
-    paths: data.map((product: product) => `/desktop/product/${product.id}`),
-    // Block the request for non-generated pages and cache them in the background
+    paths,
     fallback: "blocking",
   };
 };
