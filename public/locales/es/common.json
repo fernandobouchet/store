@@ -8,5 +8,10 @@
     "title": "Carrito",
     "button": "Proceder al Pago"
   },
-  "favourite": { "title": "Favoritos" }
+  "favourite": { "title": "Favoritos" },
+  "error": {
+    "title": "Página no encontrada",
+    "text": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",
+    "button": "Volver a la página principal"
+  }
 }

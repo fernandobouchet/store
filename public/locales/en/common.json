@@ -8,5 +8,10 @@
     "title": "Cart",
     "button": "Proceed to Payment"
   },
-  "favourite": { "title": "Favourites" }
+  "favourite": { "title": "Favourites" },
+  "error": {
+    "title": "Page not found",
+    "text": "Sorry, the page you are looking for does not exist or has been moved.",
+    "button": "Back to home"
+  }
 }
