@@ -24,7 +24,7 @@ export default function Navbar() {
     handleFavouriteOpen,
     isMobileMenuOpen,
     handleMobileMenuOpen,
-    favourites,
+    favorites,
     cart,
   } = useShop();
 
@@ -112,8 +112,8 @@ export default function Navbar() {
             onClick={handleFavouriteOpen}
           >
             <Badge
-              isInvisible={favourites?.length === 0}
-              content={favourites?.length}
+              isInvisible={favorites?.length === 0}
+              content={favorites?.length}
               color="primary"
               placement="bottom-right"
             >

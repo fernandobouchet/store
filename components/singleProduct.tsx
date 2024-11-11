@@ -19,39 +19,32 @@ export default function SingleProduct({ product }: Props) {
   const { locale } = useRouter();
 
   const {
-    favourites,
+    favorites,
     cart,
     addFavourite,
     removeFavourite,
     addToCart,
     removeFromCart,
+    findProductInCart,
+    findProductInFavs,
   } = useShop();
 
-  const [liked, setLiked] = useState<product | null>(
-    favourites.find((item) => item.id === product.id) ? product : null
-  );
-
-  const [inCart, setInCart] = useState<product | null>(
-    cart.find((item) => item.id === product.id) ? product : null
-  );
+  let isLiked = findProductInFavs(product);
+  let isInCart = findProductInCart(product);
 
   const handleFavourite = (product: product) => {
-    if (favourites.find((item) => item.id === product.id)) {
+    if (favorites.find((item) => item.id === product.id)) {
       removeFavourite(product);
-      setLiked(null);
     } else {
       addFavourite(product);
-      setLiked(product);
     }
   };
 
   const handleCart = (product: product) => {
     if (cart.find((item) => item.id === product.id)) {
       removeFromCart(product);
-      setInCart(null);
     } else {
       addToCart(product);
-      setInCart(product);
     }
   };
 
@@ -80,12 +73,14 @@ export default function SingleProduct({ product }: Props) {
               variant="light"
               onPress={() => handleFavourite(product)}
             >
-              {liked ? (
+              {isLiked ? (
                 <IoIosHeart className="w-6 h-6" fill="#005bee" />
               ) : (
                 <IoIosHeartEmpty
                   className={
-                    liked ? "w-6 h-6" : "w-6 h-6 stroke-[#005bee] stroke-[1rem]"
+                    isLiked
+                      ? "w-6 h-6"
+                      : "w-6 h-6 stroke-[#005bee] stroke-[1rem]"
                   }
                 />
               )}
@@ -118,7 +113,7 @@ export default function SingleProduct({ product }: Props) {
               className="mt-auto"
               onPress={() => handleCart(product)}
             >
-              {!inCart ? (
+              {!isInCart ? (
                 <>
                   <FaCartPlus />
                   {t("cartAdd")}

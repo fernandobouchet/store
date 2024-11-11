@@ -5,7 +5,8 @@
     "desktop": "Desktops"
   },
   "cart": {
-    "title": "Cart"
+    "title": "Cart",
+    "button": "Proceed to Payment"
   },
   "favourite": { "title": "Favourites" }
 }

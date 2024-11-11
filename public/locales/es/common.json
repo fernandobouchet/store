@@ -5,7 +5,8 @@
     "desktop": "Computadoras"
   },
   "cart": {
-    "title": "Carrito"
+    "title": "Carrito",
+    "button": "Proceder al Pago"
   },
   "favourite": { "title": "Favoritos" }
 }
