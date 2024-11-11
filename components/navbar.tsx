@@ -65,7 +65,7 @@ export default function Navbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/">
+          <Link href="/" aria-current={path === "/" ? "page" : undefined}>
             <p className="font-bold text-inherit text-2xl lg:text-3xl">
               TechStore
             </p>
@@ -77,7 +77,7 @@ export default function Navbar() {
         <NavbarItem isActive={path.startsWith("/laptop")}>
           <Link
             href={`/${locale}/laptop`}
-            aria-current="page"
+            aria-current={path === `/${locale}/laptop` ? "page" : undefined}
             className="text-xl"
           >
             {t("nav.laptop")}
@@ -86,7 +86,7 @@ export default function Navbar() {
         <NavbarItem isActive={path.startsWith("/desktop")}>
           <Link
             href={`/${locale}/desktop`}
-            aria-current="page"
+            aria-current={path === `/${locale}/desktop` ? "page" : undefined}
             className="text-xl"
           >
             {t("nav.desktop")}
@@ -134,7 +134,7 @@ export default function Navbar() {
               color="primary"
               placement="bottom-right"
             >
-              <IoCart className="h-6 w-6" />{" "}
+              <IoCart className="h-6 w-6" />
             </Badge>
           </Button>
         </NavbarItem>
@@ -146,7 +146,10 @@ export default function Navbar() {
             <Link
               color={path === item.href ? "primary" : "foreground"}
               className="w-full"
-              href={`/${locale}/item.href`}
+              href={`/${locale}/${item.href}`}
+              aria-current={
+                path === `/${locale}/${item.href}` ? "page" : undefined
+              }
               size="lg"
             >
               {item.title}
