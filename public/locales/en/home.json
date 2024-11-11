@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Welcome to TechStore",
+    "text": "Your destination for the best laptops and desktops on the market. Boost your productivity with our premium selection."
+  },
+  "sections": {
+    "laptop": {
+      "title": "Laptops",
+      "text": "Powerful laptops for work and entertainment.",
+      "button": "View laptops"
+    },
+    "desktop": {
+      "title": "Desktops",
+      "text": "Desktop computers for maximum performance.",
+      "button": "View desktops"
+    }
+  },
+  "offers": {
+    "title": "Ready to upgrade your gear?",
+    "text": "Discover our exclusive offers on laptops and PCs. Cutting-edge technology within your reach.",
+    "randomButton": "View Special Offers"
+  }
+}

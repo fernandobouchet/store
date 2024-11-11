@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Bienvenido a TechStore",
+    "text": "Tu destino para las mejores notebooks y PCs del mercado. Potencia tu productividad con nuestra selección premium."
+  },
+  "sections": {
+    "laptop": {
+      "title": "Notebooks",
+      "text": "Portátiles potentes para trabajo y entretenimiento.",
+      "button": "Ver notebooks"
+    },
+    "desktop": {
+      "title": "Computadoras",
+      "text": "Computadoras de escritorio para máximo rendimiento.",
+      "button": "Ver computadoras"
+    }
+  },
+  "offers": {
+    "title": "¿Listo para mejorar tu equipo?",
+    "text": "Descubre nuestras ofertas exclusivas en notebooks y PCs. Tecnología de punta al alcance de tu mano.",
+    "randomButton": "Ver Ofertas Especiales"
+  }
+}

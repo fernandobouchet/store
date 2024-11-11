@@ -57,7 +57,7 @@ export default function Navbar() {
           "data-[active=true]:after:bg-primary",
         ],
       }}
-      className="[&_header]:max-w-none bg-inherit"
+      className="[&_header]:max-w-none"
     >
       <NavbarContent>
         <NavbarMenuToggle
