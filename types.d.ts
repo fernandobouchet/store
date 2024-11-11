@@ -9,6 +9,7 @@ type product = {
   rating: number;
   stock: number;
   imagen: string;
+  cantidad: number;
 };
 
 export type { product };
