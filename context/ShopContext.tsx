@@ -24,27 +24,34 @@ interface ShopContextType {
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
 export const ShopProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<product[]>(() => {
-    const storedCart =
-      typeof window !== "undefined" && localStorage.getItem("cart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
-  const [favorites, setFavorites] = useState<product[]>(() => {
-    const storedFavorites =
-      typeof window !== "undefined" && localStorage.getItem("favorites");
-    return storedFavorites ? JSON.parse(storedFavorites) : [];
-  });
+  const [isMounted, setIsMounted] = useState(false);
+
+  const [cart, setCart] = useState<product[]>([]);
+  const [favorites, setFavorites] = useState<product[]>([]);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const storedCart = localStorage.getItem("cart");
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedCart) setCart(JSON.parse(storedCart));
+    if (storedFavorites) setFavorites(JSON.parse(storedFavorites));
+  }, []);
+
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    if (isMounted) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, isMounted]);
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+    if (isMounted) {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }, [favorites, isMounted]);
 
   const addFavourite = (item: product) =>
     setFavorites((prev) => [...prev, item]);
@@ -104,6 +111,8 @@ export const ShopProvider = ({ children }: { children: React.ReactNode }) => {
     closeAllMenus();
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  if (!isMounted) return null;
 
   return (
     <ShopContext.Provider
