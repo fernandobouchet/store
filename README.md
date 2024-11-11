@@ -1,68 +1,46 @@
----
-name: Pagination with SSG
-slug: pagination-with-ssg
-description: Learn to implement page based pagination with Next.js and Vercel.
-framework: Next.js
-useCase: Documentation
-css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/pagination-with-ssg&project-name=pagination-with-ssg&repository-name=pagination-with-ssg
-demoUrl: https://pagination-with-ssg.vercel.app
----
+# Store
 
-# Pagination with SSG
+>[!IMPORTANT]
+Please note that this is a demo project; it does not feature real products, prices, or payment methods, and no actual purchases can be made.
 
-This example shows how to implement page based pagination with [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) in Next.js.
+This is a fictional e-commerce web application developed with [Next.js](https://nextjs.org/), [Typescript](https://www.typescriptlang.org/), and styled using [Tailwind CSS](https://tailwindcss.com/) ,It allows users to explore products, add items to a cart, and save favourites. The application leverages Static Site Generation (SSG) for optimal performance and fast loading, creating a smooth, responsive interface across all devices.
+
+The product data is retrieved from a mock API hosted on [my-json-server](https://my-json-server.typicode.com/), which serves test data for demonstration purposes.
+
+## Key Features
+
+1. **Product Catalogue**: Explore a curated selection of products with detailed information, including prices, descriptions, and images. Users can navigate categories and view product listings optimised with Static Site Generation (SSG) for faster load times.
+
+2. **Cart and Favourites Management**: Users can add items to their shopping cart and save favourites for later. The cart and favourites lists are stored persistently in localStorage, allowing users to return and continue shopping without losing their selections. 
+
+3. **User Interaction**: Easily manage item quantities in the cart with update and remove options, providing a user-friendly shopping experience.
+   
+4. **Responsive Design**: The web app is fully responsive, offering an optimised experience across desktop, tablet, and mobile devices. 
+
+## Screenshots
+
+![App Screenshot](https://raw.githubusercontent.com/fernandobouchet/store/refs/heads/main/preview.webp)
 
 ## Demo
+https://storetechbeta.vercel.app/
 
-https://pagination-with-ssg.vercel.app
+## Used libraries
 
-## How it works
+- [Nextjs](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [NextUI](https://nextui.org/)
+- [next-i18next](https://www.i18next.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
 
-The first 5 paginated pages are cached in the edge at build time, and the rest are incrementally cached using [ISR](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration), that way we can avoid increasing build times no matter how many pages we have while still keeping essential pages cached from the
-start.
+## Getting started
 
-The example showcases a PLP (Product Listing Pages) where:
-
-- There are 100 test products and 1 category (PLP)
-- There are 10 results per page for a total of 10 pages, where 5 are pre-generated with `getStaticPaths`
-
-```ts
-// pages/category/[page].tsx
-
-export const getStaticPaths = async () => {
-  return {
-    // Prerender the next 5 pages after the first page, which is handled by the index page.
-    // Other pages will be prerendered at runtime.
-    paths: Array.from({ length: 5 }).map((_, i) => `/category/${i + 2}`),
-    // Block the request for non-generated pages and cache them in the background
-    fallback: 'blocking',
-  }
-}
+```
+git clone https://github.com/fernandobouchet/store
+cd store
+pnpm install
+pnpm run dev
 ```
 
-## How to Use
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can choose from one of the following two methods to use this repository:
-
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/pagination-with-ssg&project-name=pagination-with-ssg&repository-name=pagination-with-ssg)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/pagination-with-ssg
-```
-
-Next, run Next.js in development mode:
-
-```bash
-pnpm dev
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=edge-middleware-eap) ([Documentation](https://nextjs.org/docs/deployment)).
+You can start editing the code. The page auto-updates as you edit the file.
